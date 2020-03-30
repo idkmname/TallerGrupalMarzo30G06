@@ -1,4 +1,4 @@
-#include"tienda.h"
+#include "tienda.h"
 
 
 

@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include "tienda.c"
+
 
 void main(){
 	printf("prueba");
