@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 
-typedef enum tipoProducto{
+enum tipoProducto{
 	LEGUMBRES, ENLATADOS, CEREALES, DULCES
 };
 
@@ -12,5 +12,8 @@ typedef struct producto{
 }producto;
 
 
+//Inicializa la matriz con valores estandar 
+void inicializar(producto matriz[][5], int fil, int col);
+
 //Agregar un producto a la matriz de un tipo definido
-void agregarProducto( producto matriz[][] );
+void agregarProducto( producto matriz[][5] );
