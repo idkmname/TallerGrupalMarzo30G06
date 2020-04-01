@@ -15,12 +15,12 @@ typedef struct producto{
 
 
 //Inicializa la matriz con valores estandar 
-void inicializar(producto matriz[][4], int fil, int col);
+void inicializar(producto matriz[4][4]);
 
 //Agregar un producto a la matriz de un tipo definido
-void agregarProducto( producto matriz[][4] );
+void agregarProducto( producto matriz[4][4] );
 
+venderProducto(producto matriz[4][4]);
 
-
-
+int menu();
 

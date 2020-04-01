@@ -1,11 +1,11 @@
 #include "tienda.h"
 	
-void inicializar(producto matriz[][4], int fil, int col){
+void inicializar(producto matriz[4][4]){
 	int i, j;
 	char emptyNom[20] = "";
 
-	for ( i = 0; i < fil; i++){
-		for ( j = 0; j < col; j++){
+	for ( i = 0; i < 4; i++){
+		for ( j = 0; 4 < col; j++){
 			strcpy(matriz[i][j].nombre, emptyNom);
 			matriz[i][j].precio = 0;
 			matriz[i][j].tipo = 0;
@@ -13,15 +13,15 @@ void inicializar(producto matriz[][4], int fil, int col){
 	}
 }
 
-void venderProducto(producto matriz[][4], int fil, int col){
+void venderProducto(producto matriz[4][4]){
 	int i, j, flag;
 	char producto[20];
 	
-	printf(" que producto desea comprar: ");
+	printf(" que producto desea comprar: \n");
 	scanf(" %s ", producto);
 	
-	for ( i = 0; i < fil; i++){
-		for ( j = 0; j < col; j++){
+	for ( i = 0; i < 4; i++){
+		for ( j = 0; j < 4; j++){
 			if ( !strcmp( producto, matriz[i][j].nombre ) ){
 				flag = 1;
 				printf("\n producto %d \n", matriz[i][j].precio);
@@ -64,12 +64,43 @@ int menu(){
 }
 
 void agregarProducto( producto matriz[4][4] ){
-   int j,i;
-      
+   int i,precio,tipo,n = 0;
+   char nombre[20];
+   printf( "Cual es el tipo del producto? (1:legumbres 2:enlatados 3:cereales 4:dulces)\n" );
+   scanf("%d",&tipo);
+   printf( "Cual es el nombre de producto?\n" );
+   scanf( "s", nombre );
+   printf( "Cual es el precio del producto?\n" );
+   scanf( "%d",&precio );
 
    for( i = 0; i < 4; i++ ){
+	if( matriz[tipo - 1][i] == 0  ){
+		n = 1;
+		strcpy(matriz[ tipo-1 ][i].nombre , nombre);
+		matriz[tipo - 1][i].precio = precio;
+		
+		switch (tipo){
+			case 1: matriz[tipo - 1][i].tipo = LEGUMBRES;
+				break;
+
+			case 2: matriz[tipo - 1][i].tipo = ENLATADOS;
+				break;
+
+
+			case 3: matriz[tipo - 1][i].tipo = CEREALES;
+				break;
+
+
+			case 4: matriz[tipo - 1][i].tipo = DULCES;
+				break;
+
+		}
+	}
 	
 
+   }
+   if( n != 1 ){
+	printf("No hay espacio para el producto\n");
    }
 
 }
