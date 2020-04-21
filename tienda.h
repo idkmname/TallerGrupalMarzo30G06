@@ -9,7 +9,7 @@ typedef struct producto{
 	char nombre[20];
 	int precio;
 	int tipo;
-
+	//FIX: ojo con estos espacios que no se necesitan
 	
 }producto;
 
@@ -20,6 +20,7 @@ void inicializar(producto matriz[4][4]);
 //Agregar un producto a la matriz de un tipo definido
 void agregarProducto( producto matriz[4][4] );
 
+//FIX falta que pongan que es un void
 venderProducto(producto matriz[4][4]);
 
 int menu();

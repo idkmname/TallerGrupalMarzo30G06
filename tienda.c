@@ -1,11 +1,16 @@
 #include "tienda.h"
 	
+/* No tengo idea pq hicieron una tienda y no el banco de sangre que fue lo que pedí 
+	tiene problemas de sintaxis y par errores lógicos
+	Falta el makefile y el readme que los pedía el enunciado
+*/
+
 void inicializar(producto matriz[4][4]){
 	int i, j;
 	char emptyNom[20] = "";
 
-	for ( i = 0; i < 4; i++){
-		for ( j = 0; 4 < col; j++){
+	for ( i = 0; i < 4; i++){ //FIX numero mágico
+		for ( j = 0; 4 < col; j++){ // FIX este condicional esta al contrario
 			strcpy(matriz[i][j].nombre, emptyNom);
 			matriz[i][j].precio = 0;
 			matriz[i][j].tipo = 0;
@@ -20,7 +25,7 @@ void venderProducto(producto matriz[4][4]){
 	printf(" que producto desea comprar: \n");
 	scanf(" %s ", producto);
 	
-	for ( i = 0; i < 4; i++){
+	for ( i = 0; i < 4; i++){ // FIX: número mágico
 		for ( j = 0; j < 4; j++){
 			if ( !strcmp( producto, matriz[i][j].nombre ) ){
 				flag = 1;
@@ -56,7 +61,7 @@ int menu(){
    int opc;
 	printf( "\n MENU \n" );
 	printf( " 1 INGRESAR PRODUCTO \n" );
-	printf( "2 \n" );
+	printf( "2 \n" );  //FIX: esta incompleto el menu
 	printf( "3 \n" );
 	printf( "0 SALIR \n" );
 	scanf( "%d", &opc );
@@ -69,17 +74,17 @@ void agregarProducto( producto matriz[4][4] ){
    printf( "Cual es el tipo del producto? (1:legumbres 2:enlatados 3:cereales 4:dulces)\n" );
    scanf("%d",&tipo);
    printf( "Cual es el nombre de producto?\n" );
-   scanf( "s", nombre );
+   scanf( "s", nombre ); //FIX errore sde sintaxis
    printf( "Cual es el precio del producto?\n" );
    scanf( "%d",&precio );
 
    for( i = 0; i < 4; i++ ){
 	if( matriz[tipo - 1][i] == 0  ){
-		n = 1;
+		n = 1; //FIX: para que sirve este n= 1?
 		strcpy(matriz[ tipo-1 ][i].nombre , nombre);
 		matriz[tipo - 1][i].precio = precio;
 		
-		switch (tipo){
+		switch (tipo){ // En el switch podrían haber usado el enum
 			case 1: matriz[tipo - 1][i].tipo = LEGUMBRES;
 				break;
 
